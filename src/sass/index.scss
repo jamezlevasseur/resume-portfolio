@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@use "mixins";
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+p,
+h1,
+h2,
+h3 {
+  font-family: "Source Sans Pro", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-block {
+  h3 {
+    border-bottom: 3px solid black;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+}
+
+@include for-phone-only {
+}
+
+@include for-tablet-portrait-up {
+}
+
+@include for-tablet-landscape-up {
+}
+
+@include for-desktop-up {
+  .App {
+    text-align: left;
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+  }
+}
+
+@include for-big-desktop-up {
+}
