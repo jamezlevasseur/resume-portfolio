@@ -1,7 +1,8 @@
+@use "utils" as u;
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap");
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
-@use "mixins";
 
+/* Styles for all size */
 $spacer: 1rem;
 $spacers: (
   0: 0,
@@ -23,31 +24,245 @@ a {
   text-decoration: none;
 }
 
-.text-block {
-  h3 {
-    border-bottom: 3px solid black;
-    text-transform: uppercase;
-    font-weight: 600;
+/* unvisited link */
+a:link {
+  color: #4be0eb;
+}
+
+/* visited link */
+a:visited {
+  color: #9245d6;
+}
+
+/* mouse over link */
+a:hover {
+  color: #3fc3cc;
+}
+
+/* selected link */
+a:active {
+  color: #3fc3cc;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+.day-mode {
+  color: #222;
+  background: #fff;
+}
+
+.night-mode {
+  color: white;
+  background: black;
+}
+
+.floating-img {
+  display: none;
+}
+
+.App {
+  .top-buttons {
+    position: absolute;
+    top: 0;
+    right: 1vw;
+    text-align: right;
+    font-size: 30px;
+
+    svg {
+      margin: 0 8px;
+      filter: grayscale(100%);
+      &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .text-block {
+    h3 {
+      border-bottom: 3px solid black;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  }
+
+  .title {
+    margin-top: 8px;
+  }
+
+  .clean-list {
+    list-style-type: none;
+    text-decoration: none;
+    padding-left: 8px;
+    white-space: nowrap;
+  }
+
+  .little-bits {
+    margin-bottom: 8px;
+    span {
+      white-space: nowrap;
+
+      a {
+        margin: 8px 8px;
+      }
+    }
+  }
+
+  .work-exp,
+  .projects {
+    > span,
+    > .project-link {
+      white-space: nowrap;
+
+      a,
+      span {
+        margin: 8px 8px;
+      }
+    }
+  }
+
+  .projects {
+    .skill-list {
+      margin: 0 0 8px 0;
+      padding: 0;
+      li {
+        display: inline;
+        list-style-type: none;
+        text-decoration: none;
+        font-weight: 600;
+
+        &:after {
+          content: ", ";
+        }
+
+        &:last-child:after {
+          content: "";
+        }
+      }
+    }
+  }
+
+  .skills {
+    h4 {
+      padding-left: 4px;
+      text-decoration: underline;
+    }
   }
 }
 
-@include for-phone-only {
-}
+/*media query styles */
 
-@include for-tablet-portrait-up {
-}
-
-@include for-tablet-landscape-up {
-}
-
-@include for-desktop-up {
+@include u.for-phone-only {
   .App {
     text-align: left;
-    width: 8.5in;
-    height: 11in;
-    margin: 0 auto;
+    width: 100vw;
+    padding: 0 2vw;
+
+    .top-buttons {
+      right: 0.5vw;
+    }
   }
 }
 
-@include for-big-desktop-up {
+@include u.for-tablet-portrait-up {
+  .App {
+    text-align: left;
+    width: 100vw;
+    padding: 0 1vw;
+  }
+
+  .project-link {
+    display: inline;
+  }
+}
+
+@include u.for-tablet-landscape-up {
+}
+
+@keyframes colorTransition {
+  0% {
+    background-color: #b4aae3;
+  }
+  11% {
+    background-color: #aadbe3;
+  }
+  23% {
+    background-color: #aae3c8;
+  }
+  35% {
+    background-color: #bae3aa;
+  }
+  47% {
+    background-color: #e3ceaa;
+  }
+  59% {
+    background-color: #e3aaaa;
+  }
+  72% {
+    background-color: #e3aacc;
+  }
+  85% {
+    background-color: #d4aae3;
+  }
+  100% {
+    background-color: #b4aae3;
+  }
+}
+
+@include u.for-desktop-up {
+  body {
+    &:before {
+      content: "";
+      position: fixed;
+      width: 200%;
+      height: 200%;
+      top: -0;
+      left: -50%;
+      z-index: -1;
+      opacity: 0;
+      background-image: linear-gradient(0deg, #fff 30%, transparent 32%);
+      background-color: #ddd;
+      background-position: 0 0, 50px 50px;
+      background-size: 100px 100px;
+      animation: colorTransition 240s infinite;
+    }
+  }
+  .App {
+    width: 8.5in;
+    margin: 0 auto;
+  }
+  .floating-img {
+    display: none;
+    position: absolute;
+    width: 5vw;
+  }
+  .aad {
+    right: 15%;
+    top: 32%;
+  }
+  .code {
+    right: 10%;
+    top: 74%;
+  }
+  .python {
+    right: 7%;
+    top: 126%;
+  }
+  .rasp {
+    left: 14%;
+    top: 22%;
+  }
+  .ps {
+    left: 10%;
+    top: 89%;
+  }
+  .react {
+    left: 8%;
+    top: 178%;
+  }
+}
+
+@include u.for-big-desktop-up {
 }
