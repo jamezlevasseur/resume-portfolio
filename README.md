@@ -8,9 +8,11 @@ board games... etc.
 Icons bounce off of stuff
 
 TODO:
-Automatic timer for dark mode, starts after X o clock
 Download
-Print
+/Link color
+/Get all on one page
+/Always prints in day mode
+border bottom should be white in dark mode
 
 BUGS:
 Fix PHP spacing

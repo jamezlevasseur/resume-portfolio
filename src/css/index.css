@@ -11130,6 +11130,30 @@ h3,
   font-family: "Source Sans Pro", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.75em;
+}
+
+h4 {
+
+}
+
+h5 {
+
+}*/
+p {
+  font-size: 1em;
+}
+
 a {
   text-decoration: none;
 }
@@ -11170,6 +11194,10 @@ p {
 
 .floating-img {
   display: none;
+}
+
+.work-exp > * {
+  break-before: always;
 }
 
 .App .top-buttons {
@@ -11298,6 +11326,10 @@ p {
     background-color: #b4aae3;
   }
 }
+* {
+  box-sizing: border-box;
+}
+
 @media (min-width: 1200px) {
   body:before {
     content: "";

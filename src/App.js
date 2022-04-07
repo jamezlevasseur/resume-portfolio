@@ -5,6 +5,8 @@ import rasp from "./assets/rasp.png";
 import react from "./assets/react.png";
 import ps from "./assets/ps.png";
 import python from "./assets/python.png";
+import html2pdf from "html2pdf.js";
+import $ from "jquery";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -51,6 +53,7 @@ function App(props) {
     if (dayNight === "day") {
       return (
         <FontAwesomeIcon
+          data-html2canvas-ignore="true"
           icon={faSun}
           onClick={() => {
             dayNightSwitch();
@@ -85,7 +88,38 @@ function App(props) {
           <div className="top-buttons">
             <DayNightButton />
 
-            <FontAwesomeIcon icon={faFileArrowDown} />
+            <FontAwesomeIcon
+              data-html2canvas-ignore="true"
+              icon={faFileArrowDown}
+              onClick={() => {
+                setTimeout(() => {
+                  html2pdf()
+                    .set({
+                      html2canvas: {
+                        onclone: (element) => {
+                          const svgElements = Array.from(
+                            element.querySelectorAll("svg")
+                          );
+
+                          svgElements.forEach((s) => {
+                            const bBox = s.getBBox();
+                            s.setAttribute("x", bBox.x);
+                            s.setAttribute("y", bBox.y);
+                            s.setAttribute(
+                              "width",
+                              (bBox.width / bBox.height) * 15
+                            );
+                            s.setAttribute("height", 15);
+                          });
+                        },
+                      },
+                      pagebreak: { mode: "css" },
+                    })
+                    .from($(".App")[0])
+                    .save();
+                }, 5000);
+              }}
+            />
           </div>
         </div>
         <div className="little-bits col-sm-12">
@@ -120,7 +154,7 @@ function App(props) {
           </span>
         </div>
         <div className="left-col col-sm-8">
-          <div className="text-block">
+          <div className="text-block career-obj" data-html2canvas-ignore="true">
             <h3>Career Objective</h3>
             <p>
               I got into tech and my current role as a System Administrator
@@ -237,7 +271,7 @@ function App(props) {
               <li>Designed and implemented complex user interfaces</li>
             </ul>
           </div>
-          <div className="text-block projects">
+          <div className="text-block projects" data-html2canvas-ignore="true">
             <h3>Projects</h3>
             <h4>WrldBldr</h4>
             <div className="project-link">
@@ -366,7 +400,7 @@ function App(props) {
               <li>Unifi Business Wifi</li>
             </ul>
           </div>
-          <div className="text-block">
+          <div className="text-block hobbies" data-html2canvas-ignore="true">
             <h3>Hobbies</h3>
             <ul className="clean-list">
               <li>3D Printing</li>
