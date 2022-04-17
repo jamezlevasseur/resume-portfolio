@@ -322,10 +322,11 @@ function App(props) {
                 Check out the code.
               </a>
             </div>
+            {/*
             <div className="project-link">
               <FontAwesomeIcon icon={faGlobe} />
               <a href="wb.jameslevasseur.com">Take a look.</a>
-            </div>
+            </div>*/}
             <ul className="skill-list">
               <li>React.js</li>
               <li>Django</li>
@@ -350,10 +351,11 @@ function App(props) {
                 Check out the code.
               </a>
             </div>
+            {/*
             <div className="project-link">
               <FontAwesomeIcon icon={faGlobe} />
               <a href="fablab.jameslevasseur.com">Take a look.</a>
-            </div>
+            </div>*/}
             <ul className="skill-list">
               <li>PHP</li>
               <li>jQuery</li>
