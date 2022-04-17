@@ -33,6 +33,9 @@ function App(props) {
   const [bodyColor, setbodyColor] = useState(
     initialDayNightSetting === "day" ? "#000" : "#fff"
   );
+  const [h3BorderBottom, setH3BorderBottom] = useState({
+    borderBottom: "3px solid #fff",
+  });
 
   document.body.style.background = bodyBG;
   document.body.style.color = bodyColor;
@@ -42,10 +45,12 @@ function App(props) {
       setbodyBG("#fff");
       setbodyColor("#000");
       setDayNight("day");
+      setH3BorderBottom({ borderBottom: "3px solid #000" });
     } else {
       setbodyBG("#222");
       setbodyColor("#fff");
       setDayNight("night");
+      setH3BorderBottom({ borderBottom: "3px solid #fff" });
     }
   }
 
@@ -63,6 +68,7 @@ function App(props) {
     } else {
       return (
         <FontAwesomeIcon
+          data-html2canvas-ignore="true"
           icon={faMoon}
           onClick={() => {
             dayNightSwitch();
@@ -93,16 +99,74 @@ function App(props) {
               icon={faFileArrowDown}
               onClick={() => {
                 setTimeout(() => {
+                  const printBackgroundColor =
+                    dayNight === "day" ? "#fff" : "#222";
                   html2pdf()
                     .set({
+                      filename: "James_LeVasseur_Resume.pdf",
                       html2canvas: {
                         onclone: (element) => {
+                          const span = Array.from(
+                            element.querySelectorAll("span")
+                          );
+                          const li = Array.from(element.querySelectorAll("li"));
+                          const p = Array.from(element.querySelectorAll("p"));
+                          const h1 = Array.from(element.querySelectorAll("h1"));
+                          const h2 = Array.from(element.querySelectorAll("h2"));
+                          const h3 = Array.from(element.querySelectorAll("h3"));
+                          const h4 = Array.from(element.querySelectorAll("h4"));
+                          const h5 = Array.from(element.querySelectorAll("h5"));
+                          span.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          li.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          p.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h1.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h2.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h3.forEach((e) => {
+                            e.style.color = "#000";
+                            e.style.borderBottom = "3px solid #000";
+                          });
+                          h4.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h5.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+
+                          const divs = Array.from(
+                            element.querySelectorAll("div")
+                          );
+
+                          divs.forEach((d) => {
+                            if (d.classList.contains("App")) {
+                              d.style.backgroundColor = "#fff";
+                            }
+                          });
+
+                          const anchorElements = Array.from(
+                            element.querySelectorAll("a")
+                          );
+
+                          anchorElements.forEach((a) => {
+                            a.style.color = "#000";
+                          });
+
                           const svgElements = Array.from(
                             element.querySelectorAll("svg")
                           );
 
                           svgElements.forEach((s) => {
                             const bBox = s.getBBox();
+
                             s.setAttribute("x", bBox.x);
                             s.setAttribute("y", bBox.y);
                             s.setAttribute(
@@ -112,12 +176,12 @@ function App(props) {
                             s.setAttribute("height", 15);
                           });
                         },
+                        height: 1056,
                       },
-                      pagebreak: { mode: "css" },
                     })
                     .from($(".App")[0])
                     .save();
-                }, 5000);
+                }, 1000);
               }}
             />
           </div>
@@ -155,7 +219,7 @@ function App(props) {
         </div>
         <div className="left-col col-sm-8">
           <div className="text-block career-obj" data-html2canvas-ignore="true">
-            <h3>Career Objective</h3>
+            <h3 style={h3BorderBottom}>Career Objective</h3>
             <p>
               I got into tech and my current role as a System Administrator
               because I love problem solving. My current position has afforeded
@@ -170,7 +234,7 @@ function App(props) {
             </p>
           </div>
           <div className="text-block work-exp">
-            <h3>Work Experience</h3>
+            <h3 style={h3BorderBottom}>Work Experience</h3>
             <h4>Network Administrator</h4>
             <h5>Wayside Publishing</h5>
             <span>
@@ -204,28 +268,6 @@ function App(props) {
                 year
               </li>
               <li>Managed adjustments to COVID-19 remote work</li>
-            </ul>
-            <h4>Tech Support</h4>
-            <h5>Wayside Publishing</h5>
-            <span>
-              <FontAwesomeIcon icon={faCalendar} />
-              <span>2017</span>
-            </span>
-            <span>
-              <FontAwesomeIcon icon={faLocationDot} />
-              <a>Freeport, ME</a>
-            </span>
-
-            <ul>
-              <li>
-                Provide support for Wayside Publishing customers via phone and
-                email
-              </li>
-              <li>Closed over one thousand tickets in peak season</li>
-              <li>
-                Created documentation and helmed brand new rostering process
-              </li>
-              <li>Automated data entry for several projects</li>
             </ul>
 
             <h4>IT Helpdesk Associate</h4>
@@ -272,7 +314,7 @@ function App(props) {
             </ul>
           </div>
           <div className="text-block projects" data-html2canvas-ignore="true">
-            <h3>Projects</h3>
+            <h3 style={h3BorderBottom}>Projects</h3>
             <h4>WrldBldr</h4>
             <div className="project-link">
               <FontAwesomeIcon icon={faGithub} />
@@ -337,7 +379,7 @@ function App(props) {
         </div>
         <div className="right-col col-sm-3">
           <div className="text-block">
-            <h3>Education</h3>
+            <h3 style={h3BorderBottom}>Education</h3>
             <p>Bachelors in New Media</p>
             <p>Minor in Computer Science, Film &amp; Video</p>
             <p>
@@ -351,16 +393,14 @@ function App(props) {
             </p>
           </div>
           <div className="text-block skills">
-            <h3>Skills</h3>
+            <h3 style={h3BorderBottom}>Skills</h3>
             <h4>Coding</h4>
             <ul className="clean-list">
               <li>Bash</li>
               <li>CSS</li>
-              <li>D3.js</li>
               <li>HTML</li>
               <li>Java</li>
               <li>JavaScipt</li>
-              <li>MaterialUI</li>
               <li>PHP</li>
               <li>PowerShell</li>
               <li>Python</li>
@@ -370,7 +410,6 @@ function App(props) {
             <h4>Databases</h4>
             <ul className="clean-list">
               <li>MongoDB</li>
-              <li>MySQL</li>
               <li>Postgres</li>
             </ul>
             <h4>Dev Tools</h4>
@@ -384,24 +423,13 @@ function App(props) {
             <ul className="clean-list">
               <li>Automox</li>
               <li>Azure Active Directory</li>
-              <li>BitDefender GZ</li>
-              <li>DNS Management</li>
               <li>Debian &amp; Ubuntu</li>
               <li>Intune</li>
-              <li>JAMF</li>
-              <li>Kantech Entrapass</li>
-              <li>Flare VM</li>
-              <li>Meraki SM</li>
-              <li>Microsoft 365</li>
-              <li>Pulseway</li>
-              <li>RingCentral</li>
-              <li>Salesforce</li>
               <li>SonicWall</li>
-              <li>Unifi Business Wifi</li>
             </ul>
           </div>
           <div className="text-block hobbies" data-html2canvas-ignore="true">
-            <h3>Hobbies</h3>
+            <h3 style={h3BorderBottom}>Hobbies</h3>
             <ul className="clean-list">
               <li>3D Printing</li>
               <li>Biking</li>

@@ -9,10 +9,9 @@ Icons bounce off of stuff
 
 TODO:
 Download
-/Link color
-/Get all on one page
 /Always prints in day mode
 border bottom should be white in dark mode
+Do a proper page break later and add back content
 
 BUGS:
 Fix PHP spacing
