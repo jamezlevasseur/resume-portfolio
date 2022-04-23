@@ -11258,7 +11258,7 @@ p {
 @media (max-width: 599px) {
   .App {
     text-align: left;
-    width: 100vw;
+    width: 98vw;
     padding: 0 2vw;
   }
   .App .top-buttons {
@@ -11268,7 +11268,7 @@ p {
 @media (min-width: 600px) {
   .App {
     text-align: left;
-    width: 100vw;
+    width: 99vw;
     padding: 0 1vw;
   }
 
@@ -11340,36 +11340,6 @@ p {
     display: none;
     position: absolute;
     width: 5vw;
-  }
-
-  .aad {
-    right: 15%;
-    top: 32%;
-  }
-
-  .code {
-    right: 10%;
-    top: 74%;
-  }
-
-  .python {
-    right: 7%;
-    top: 126%;
-  }
-
-  .rasp {
-    left: 14%;
-    top: 22%;
-  }
-
-  .ps {
-    left: 10%;
-    top: 89%;
-  }
-
-  .react {
-    left: 8%;
-    top: 178%;
   }
 }
 

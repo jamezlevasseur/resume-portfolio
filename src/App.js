@@ -88,7 +88,7 @@ function App(props) {
       <img src={react} className="floating-img react" />
 
       <div className="row">
-        <div className="title col-sm-12">
+        <div className="title col-sm-12 col-xs-12">
           <h1>James LeVasseur</h1>
           <h2>Developer, Sys Admin, Geek</h2>
           <div className="top-buttons">
@@ -186,7 +186,7 @@ function App(props) {
             />
           </div>
         </div>
-        <div className="little-bits col-sm-12">
+        <div className="little-bits col-sm-12 col-xs-12">
           <span>
             <FontAwesomeIcon icon={faEnvelope} />
             <a href="mailto:jlevdev@gmail.com" target="_blank">
@@ -217,7 +217,7 @@ function App(props) {
             </a>
           </span>
         </div>
-        <div className="left-col col-sm-8">
+        <div className="left-col col-sm-8 col-xs-8">
           <div className="text-block career-obj" data-html2canvas-ignore="true">
             <h3 style={h3BorderBottom}>Career Objective</h3>
             <p>
@@ -380,7 +380,7 @@ function App(props) {
             </p>
           </div>
         </div>
-        <div className="right-col col-sm-3">
+        <div className="right-col col-sm-3 col-xs-3">
           <div className="text-block">
             <h3 style={h3BorderBottom}>Education</h3>
             <p>Bachelors in New Media</p>
