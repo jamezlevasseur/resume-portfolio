@@ -87,104 +87,105 @@ function App(props) {
       <img src={ps} className="floating-img ps" />
       <img src={react} className="floating-img react" />
 
-      <div className="title col-sm-12">
-        <h1>James LeVasseur</h1>
-        <h2>Developer, Sys Admin, Geek</h2>
-        <div className="top-buttons">
-          <DayNightButton />
+      <div className="row">
+        <div className="title col-sm-12">
+          <h1>James LeVasseur</h1>
+          <h2>Developer, Sys Admin, Geek</h2>
+          <div className="top-buttons">
+            <DayNightButton />
 
-          <FontAwesomeIcon
-            data-html2canvas-ignore="true"
-            icon={faFileArrowDown}
-            onClick={() => {
-              setTimeout(() => {
-                const printBackgroundColor =
-                  dayNight === "day" ? "#fff" : "#222";
-                html2pdf()
-                  .set({
-                    filename: "James_LeVasseur_Resume.pdf",
-                    html2canvas: {
-                      onclone: (element) => {
-                        const span = Array.from(
-                          element.querySelectorAll("span")
-                        );
-                        const li = Array.from(element.querySelectorAll("li"));
-                        const p = Array.from(element.querySelectorAll("p"));
-                        const h1 = Array.from(element.querySelectorAll("h1"));
-                        const h2 = Array.from(element.querySelectorAll("h2"));
-                        const h3 = Array.from(element.querySelectorAll("h3"));
-                        const h4 = Array.from(element.querySelectorAll("h4"));
-                        const h5 = Array.from(element.querySelectorAll("h5"));
-                        span.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-                        li.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-                        p.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-                        h1.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-                        h2.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-                        h3.forEach((e) => {
-                          e.style.color = "#000";
-                          e.style.borderBottom = "3px solid #000";
-                        });
-                        h4.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-                        h5.forEach((e) => {
-                          e.style.color = "#000";
-                        });
-
-                        const divs = Array.from(
-                          element.querySelectorAll("div")
-                        );
-
-                        divs.forEach((d) => {
-                          if (d.classList.contains("App")) {
-                            d.style.backgroundColor = "#fff";
-                          }
-                        });
-
-                        const anchorElements = Array.from(
-                          element.querySelectorAll("a")
-                        );
-
-                        anchorElements.forEach((a) => {
-                          a.style.color = "#000";
-                        });
-
-                        const svgElements = Array.from(
-                          element.querySelectorAll("svg")
-                        );
-
-                        svgElements.forEach((s) => {
-                          const bBox = s.getBBox();
-
-                          s.setAttribute("x", bBox.x);
-                          s.setAttribute("y", bBox.y);
-                          s.setAttribute(
-                            "width",
-                            (bBox.width / bBox.height) * 15
+            <FontAwesomeIcon
+              data-html2canvas-ignore="true"
+              icon={faFileArrowDown}
+              onClick={() => {
+                setTimeout(() => {
+                  const printBackgroundColor =
+                    dayNight === "day" ? "#fff" : "#222";
+                  html2pdf()
+                    .set({
+                      filename: "James_LeVasseur_Resume.pdf",
+                      html2canvas: {
+                        onclone: (element) => {
+                          const span = Array.from(
+                            element.querySelectorAll("span")
                           );
-                          s.setAttribute("height", 15);
-                        });
-                      },
-                      height: 1056,
-                    },
-                  })
-                  .from($(".App")[0])
-                  .save();
-              }, 1000);
-            }}
-          />
-        </div>
+                          const li = Array.from(element.querySelectorAll("li"));
+                          const p = Array.from(element.querySelectorAll("p"));
+                          const h1 = Array.from(element.querySelectorAll("h1"));
+                          const h2 = Array.from(element.querySelectorAll("h2"));
+                          const h3 = Array.from(element.querySelectorAll("h3"));
+                          const h4 = Array.from(element.querySelectorAll("h4"));
+                          const h5 = Array.from(element.querySelectorAll("h5"));
+                          span.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          li.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          p.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h1.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h2.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h3.forEach((e) => {
+                            e.style.color = "#000";
+                            e.style.borderBottom = "3px solid #000";
+                          });
+                          h4.forEach((e) => {
+                            e.style.color = "#000";
+                          });
+                          h5.forEach((e) => {
+                            e.style.color = "#000";
+                          });
 
+                          const divs = Array.from(
+                            element.querySelectorAll("div")
+                          );
+
+                          divs.forEach((d) => {
+                            if (d.classList.contains("App")) {
+                              d.style.backgroundColor = "#fff";
+                            }
+                          });
+
+                          const anchorElements = Array.from(
+                            element.querySelectorAll("a")
+                          );
+
+                          anchorElements.forEach((a) => {
+                            a.style.color = "#000";
+                          });
+
+                          const svgElements = Array.from(
+                            element.querySelectorAll("svg")
+                          );
+
+                          svgElements.forEach((s) => {
+                            const bBox = s.getBBox();
+
+                            s.setAttribute("x", bBox.x);
+                            s.setAttribute("y", bBox.y);
+                            s.setAttribute(
+                              "width",
+                              (bBox.width / bBox.height) * 15
+                            );
+                            s.setAttribute("height", 15);
+                          });
+                        },
+                        height: 1056,
+                      },
+                    })
+                    .from($(".App")[0])
+                    .save();
+                }, 1000);
+              }}
+            />
+          </div>
+        </div>
         <div className="little-bits col-sm-12">
           <span>
             <FontAwesomeIcon icon={faEnvelope} />
