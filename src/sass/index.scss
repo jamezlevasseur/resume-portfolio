@@ -62,6 +62,10 @@ p {
   background: black;
 }
 
+.fa-file-arrow-down {
+  display: none;
+}
+
 .floating-img {
   display: none;
 }
@@ -182,6 +186,9 @@ p {
 }
 
 @include u.for-tablet-landscape-up {
+  .fa-file-arrow-down {
+    display: inline-block;
+  }
 }
 
 @keyframes colorTransition {

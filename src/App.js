@@ -222,7 +222,7 @@ function App(props) {
             <h3 style={h3BorderBottom}>Career Objective</h3>
             <p>
               I got into tech and my current role as a System Administrator
-              because I love problem solving. My current position has afforeded
+              because I love problem solving. My current position has afforded
               me a plethora of opportunities to learn new things and work with
               great people. I still code for fun and continue to be fascinated
               with programming. My current passion project, Wrld Bldr, blends my
@@ -247,8 +247,8 @@ function App(props) {
             </span>
 
             <ul>
-              <li>Maintain Linux servers on premises and in AWS</li>
-              <li>Manage Azure Active Directory tenant</li>
+              <li>Maintained Linux servers on premises and in AWS</li>
+              <li>Managed Azure Active Directory tenant</li>
               <li>
                 Implemented and mainatained Unifi Wi-Fi system for multiple
                 sites
@@ -262,7 +262,7 @@ function App(props) {
                 Upgraded &amp; fortified infrastructure against cyber security
                 incidents
               </li>
-              <li>Manage IT help desk and helpdesk staff</li>
+              <li>Managed IT help desk and helpdesk staff</li>
               <li>
                 Removed redundant software and saved thousands of dollars per
                 year
@@ -283,9 +283,10 @@ function App(props) {
 
             <ul>
               <li>
-                Provide IT support for students and staff at in person help desk
+                Provided IT support for students and staff at in person help
+                desk
               </li>
-              <li>Maintain printers at two help desk locations</li>
+              <li>Maintained printers at two help desk locations</li>
               <li>
                 Responded quickly to computer outages to notify and assist
                 students
@@ -339,10 +340,10 @@ function App(props) {
               campaign I found the online tools for DMs (Dungeon Masters)
               lacking and decided to begin the creation of my own set of tools.
               Wrld Bldr (World Builder) is a work in progress with the goal
-              being a tool that can create settlements, NPCs, maps, invetories
-              and more for the DM. My goal is to take some of the tedium out of
-              creating a world and generate a town or a region for the DM, then
-              allow them to customize it to fit their vision.
+              being a tool that can create settlements, characters, maps,
+              invetories and more for the DM. My goal is to take some of the
+              tedium out of creating a world and generate a town or a region for
+              the DM, then allow them to customize it to fit their vision.
             </p>
             <h4>Fab Lab Reservation System</h4>
             <div className="project-link">
@@ -364,18 +365,18 @@ function App(props) {
             </ul>
             <p>
               My capstone project for college was a WordPress site with a custom
-              plugin that created a reservation and inventory system for the UMO
-              campus Fabrication Lab or "Fab Lab". The system, which was
-              operational for 3 years, allowed patrons of the Fab Lab to reserve
-              equipment like 3D printers, cameras, laser cutters and more. It
-              kept track of costs for certain equipment like the 3D printers,
-              which were charged by the amount of material used. The staff of
-              the Fab Lab could enter in new equipment, mark the equipment as
-              under unavailable for maintenance, keep track of the available
-              materials for different pieces of equipment, manage reservation
-              times and schedules, and more. The system also came with a custom
-              page for tablets so that there could be an interactive reservation
-              and checkout window on site.
+              plugin that created a reservation and inventory system for the
+              University of Maine campus Fabrication Lab or "Fab Lab". The
+              system, which was operational for 3 years, allowed patrons of the
+              Fab Lab to reserve equipment like 3D printers, cameras, laser
+              cutters and more. It kept track of costs for certain equipment
+              like the 3D printers, which were charged by the amount of material
+              used. The staff of the Fab Lab could enter in new equipment, mark
+              the equipment as under unavailable for maintenance, keep track of
+              the available materials for different pieces of equipment, manage
+              reservation times and schedules, and more. The system also came
+              with a custom page for tablets so that there could be an
+              interactive reservation and checkout window on site.
             </p>
           </div>
         </div>
