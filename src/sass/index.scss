@@ -163,6 +163,7 @@ p {
 
 @include u.for-phone-only {
   .App {
+    background: red;
     text-align: left;
     width: 98vw;
     padding: 0 2vw;

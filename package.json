@@ -32,6 +32,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy":"npm run build ",
+    "gh-clean": "gh-pages-clean",
+    "justdeploy": "gh-pages -cname jameslevasseur.com -d build",
     "deploy":"gh-pages -cname jameslevasseur.com -d build"
   },
   "eslintConfig": {

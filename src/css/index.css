@@ -11257,6 +11257,7 @@ p {
 /*media query styles */
 @media (max-width: 599px) {
   .App {
+    background: red;
     text-align: left;
     width: 98vw;
     padding: 0 2vw;
