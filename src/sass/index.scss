@@ -107,9 +107,17 @@ p {
   }
 
   .little-bits {
+    list-style: none;
     margin-bottom: 8px;
-    span {
+
+    > ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
       white-space: nowrap;
+      display: inline-block;
 
       a {
         margin: 8px 8px;
@@ -163,7 +171,6 @@ p {
 
 @include u.for-phone-only {
   .App {
-    background: red;
     text-align: left;
     width: 98vw;
     padding: 0 2vw;

@@ -80,15 +80,8 @@ function App(props) {
 
   return (
     <div className="App container">
-      <img src={aad} className="floating-img aad" />
-      <img src={python} className="floating-img python" />
-      <img src={code} className="floating-img code" />
-      <img src={rasp} className="floating-img rasp" />
-      <img src={ps} className="floating-img ps" />
-      <img src={react} className="floating-img react" />
-
       <div className="row">
-        <div className="title col-sm-12 col-xs-12">
+        <div className="title col-xs-12">
           <h1>James LeVasseur</h1>
           <h2>Developer, Sys Admin, Geek</h2>
           <div className="top-buttons">
@@ -186,38 +179,40 @@ function App(props) {
             />
           </div>
         </div>
-        <div className="little-bits col-sm-12 col-xs-12">
-          <span>
-            <FontAwesomeIcon icon={faEnvelope} />
-            <a href="mailto:jlevdev@gmail.com" target="_blank">
-              jlevdev@gmail.com
-            </a>
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faMobileButton} />
-            <a>(207) 659-9328</a>
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faLocationDot} />
-            <a>Portland, ME</a>
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faLinkedin} />
-            <a
-              href="https://www.linkedin.com/in/james-levasseur-7389aa168/"
-              target="_blank"
-            >
-              LinkedIn
-            </a>
-          </span>
-          <span>
-            <FontAwesomeIcon icon={faGithub} />
-            <a href="https://github.com/jamezlevasseur" target="_blank">
-              Github
-            </a>
-          </span>
+        <div className="little-bits col-xs-12">
+          <ul>
+            <li>
+              <FontAwesomeIcon icon={faEnvelope} />
+              <a href="mailto:jlevdev@gmail.com" target="_blank">
+                jlevdev@gmail.com
+              </a>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faMobileButton} />
+              <a>(207) 659-9328</a>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faLocationDot} />
+              <a>Portland, ME</a>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faLinkedin} />
+              <a
+                href="https://www.linkedin.com/in/james-levasseur-7389aa168/"
+                target="_blank"
+              >
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <FontAwesomeIcon icon={faGithub} />
+              <a href="https://github.com/jamezlevasseur" target="_blank">
+                Github
+              </a>
+            </li>
+          </ul>
         </div>
-        <div className="left-col col-sm-8 col-xs-8">
+        <div className="left-col col-xs-8">
           <div className="text-block career-obj" data-html2canvas-ignore="true">
             <h3 style={h3BorderBottom}>Career Objective</h3>
             <p>
@@ -226,11 +221,10 @@ function App(props) {
               me a plethora of opportunities to learn new things and work with
               great people. I still code for fun and continue to be fascinated
               with programming. My current passion project, Wrld Bldr, blends my
-              love for Dungeons and Dragons with coding. During it I have
-              learned about Django, React, and gave had to brush off my geometry
-              skills to get the map generation process. I want to take this
-              passion for learning new things and solving problems to new and
-              interesting places.
+              love for Dungeons and Dragons with coding. Creating Wrld Bldr has
+              been an oppotunity to learn Django, React, and brush off my
+              geometry skills. I want to take this passion for learning new
+              things and solving problems to new and interesting places.
             </p>
           </div>
           <div className="text-block work-exp">
@@ -380,7 +374,7 @@ function App(props) {
             </p>
           </div>
         </div>
-        <div className="right-col col-sm-3 col-xs-3">
+        <div className="right-col col-xs-3">
           <div className="text-block">
             <h3 style={h3BorderBottom}>Education</h3>
             <p>Bachelors in New Media</p>

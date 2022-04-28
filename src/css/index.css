@@ -11209,12 +11209,19 @@ p {
   white-space: nowrap;
 }
 .App .little-bits {
+  list-style: none;
   margin-bottom: 8px;
 }
-.App .little-bits span {
-  white-space: nowrap;
+.App .little-bits > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.App .little-bits span a {
+.App .little-bits li {
+  white-space: nowrap;
+  display: inline-block;
+}
+.App .little-bits li a {
   margin: 8px 8px;
 }
 .App .work-exp > span,
@@ -11257,7 +11264,6 @@ p {
 /*media query styles */
 @media (max-width: 599px) {
   .App {
-    background: red;
     text-align: left;
     width: 98vw;
     padding: 0 2vw;
