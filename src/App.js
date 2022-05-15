@@ -92,8 +92,6 @@ function App(props) {
               icon={faFileArrowDown}
               onClick={() => {
                 setTimeout(() => {
-                  const printBackgroundColor =
-                    dayNight === "day" ? "#fff" : "#222";
                   html2pdf()
                     .set({
                       filename: "James_LeVasseur_Resume.pdf",
@@ -158,6 +156,8 @@ function App(props) {
                           );
 
                           svgElements.forEach((s) => {
+                            console.log(s);
+                            console.log(s.firstChild);
                             const bBox = s.getBBox();
 
                             s.setAttribute("x", bBox.x);
@@ -167,6 +167,12 @@ function App(props) {
                               (bBox.width / bBox.height) * 15
                             );
                             s.setAttribute("height", 15);
+
+                            s.style.fill = "#000";
+                            s.style.webkitTextFillColor = "#000";
+
+                            s.firstChild.style.fill = "#000";
+                            s.firstChild.style.webkitTextFillColor = "#000";
                           });
                         },
                         height: 1056,
