@@ -263,4 +263,8 @@ p {
 }
 
 @include u.for-big-desktop-up {
+  .App {
+    width: inherit;
+    margin: 0 auto;
+  }
 }

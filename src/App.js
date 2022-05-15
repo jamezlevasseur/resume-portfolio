@@ -81,7 +81,7 @@ function App(props) {
   return (
     <div className="App container">
       <div className="row">
-        <div className="title col-xs-12">
+        <div className="title col-12">
           <h1>James LeVasseur</h1>
           <h2>Developer, Sys Admin, Geek</h2>
           <div className="top-buttons">
@@ -179,7 +179,7 @@ function App(props) {
             />
           </div>
         </div>
-        <div className="little-bits col-xs-12">
+        <div className="little-bits col-12">
           <ul>
             <li>
               <FontAwesomeIcon icon={faEnvelope} />
@@ -212,7 +212,7 @@ function App(props) {
             </li>
           </ul>
         </div>
-        <div className="left-col col-xs-8">
+        <div className="left-col col-8">
           <div className="text-block career-obj" data-html2canvas-ignore="true">
             <h3 style={h3BorderBottom}>Career Objective</h3>
             <p>
@@ -233,7 +233,7 @@ function App(props) {
             <h5>Wayside Publishing</h5>
             <span>
               <FontAwesomeIcon icon={faCalendar} />
-              <span>2018 - Present</span>
+              <span>2017 - Present</span>
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
@@ -374,7 +374,7 @@ function App(props) {
             </p>
           </div>
         </div>
-        <div className="right-col col-xs-3">
+        <div className="right-col col-4">
           <div className="text-block">
             <h3 style={h3BorderBottom}>Education</h3>
             <p>Bachelors in New Media</p>

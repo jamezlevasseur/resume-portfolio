@@ -11349,5 +11349,11 @@ p {
     width: 5vw;
   }
 }
+@media (min-width: 1800px) {
+  .App {
+    width: inherit;
+    margin: 0 auto;
+  }
+}
 
 /*# sourceMappingURL=index.css.map */
