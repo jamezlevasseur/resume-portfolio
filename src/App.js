@@ -1,10 +1,4 @@
 import umobear from "./assets/umologo.png";
-import aad from "./assets/aad.png";
-import code from "./assets/code.png";
-import rasp from "./assets/rasp.png";
-import react from "./assets/react.png";
-import ps from "./assets/ps.png";
-import python from "./assets/python.png";
 import html2pdf from "html2pdf.js";
 import $ from "jquery";
 import React, { useState } from "react";
@@ -13,7 +7,6 @@ import {
   faCalendar,
   faEnvelope,
   faFileArrowDown,
-  faGlobe,
   faLocationDot,
   faMobileButton,
   faMoon,
@@ -21,7 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
-function App(props) {
+function App() {
   const currentTime = new Date().getHours();
 
   const initialDayNightSetting =
@@ -212,7 +205,7 @@ function App(props) {
             </li>
             <li>
               <FontAwesomeIcon icon={faGithub} />
-              <a href="https://github.com/jamezlevasseur" target="_blank">
+              <a href="https://github.com/jlevdev" target="_blank">
                 Github
               </a>
             </li>
@@ -222,19 +215,47 @@ function App(props) {
           <div className="text-block career-obj" data-html2canvas-ignore="true">
             <h3 style={h3BorderBottom}>Career Objective</h3>
             <p>
-              I got into tech and my current role as a System Administrator
-              because I love problem solving. My current position has afforded
-              me a plethora of opportunities to learn new things and work with
-              great people. I still code for fun and continue to be fascinated
-              with programming. My current passion project, Wrld Bldr, blends my
-              love for Dungeons and Dragons with coding. Creating Wrld Bldr has
-              been an oppotunity to learn Django, React, and brush off my
-              geometry skills. I want to take this passion for learning new
-              things and solving problems to new and interesting places.
+              Hi, I'm James and welcome to my site/resume. I'm a tech enthusiast
+              who's gone from IT Support to System Administrator and now
+              Fullstack Developer. If I had to encapsulate my career into a
+              phrase it would be "learn on the go" (disclaimer I have not used
+              much of GO). I have been coding since high school and have taken
+              on a variety of projects both professional and personal. From
+              websites, to microcontrollers, 3D printing, and homelab setups. I
+              learn by doing on the regular and would be happy to help with your
+              next project.
             </p>
           </div>
           <div className="text-block work-exp">
             <h3 style={h3BorderBottom}>Work Experience</h3>
+            <h4>Fullstack Developer</h4>
+            <h5>Wayside Publishing</h5>
+            <span>
+              <FontAwesomeIcon icon={faCalendar} />
+              <span>2017 - Present</span>
+            </span>
+            <span>
+              <FontAwesomeIcon icon={faLocationDot} />
+              <a>Freeport, ME</a>
+            </span>
+
+            <ul>
+              <li>
+                Identified and lead overhaul of ADA issues in React front-end
+              </li>
+              <li>
+                Developed new Power BI connector for highly customized CMS
+              </li>
+              <li>
+                Upgraded user analytics capture using MongoDB and SQL databases
+              </li>
+              <li>Assisted in major upgrade of back-end framework and CMS</li>
+              <li>
+                Routinely developed new features using React for front-end
+                application
+              </li>
+            </ul>
+
             <h4>Network Administrator</h4>
             <h5>Wayside Publishing</h5>
             <span>
@@ -248,48 +269,51 @@ function App(props) {
 
             <ul>
               <li>Maintained Linux servers on premises and in AWS</li>
-              <li>Managed Azure Active Directory tenant</li>
               <li>
-                Implemented and mainatained Unifi Wi-Fi system for multiple
-                sites
+                Maintained, upgraded, and archived applications with SQL
+                databases
+              </li>
+              <li>Managed software & inventory budget</li>
+              <li>Managed IT help desk and help desk staff</li>
+              <li>
+                Implemented MDM, AzureAD, and patch management systems for all
+                endpoints
               </li>
               <li>
-                Managed over 100 endpoint devices with Automox, Intune,
-                Pulseway, and JAMF
+                Managed adjustments to COVID-19 remote work for entire 100
+                employee staff
               </li>
-              <li>Automated processes with PowerShell, Bash, and JavaScript</li>
               <li>
-                Upgraded &amp; fortified infrastructure against cyber security
+                Upgraded & fortified LAN infrastructure against cyber security
                 incidents
               </li>
-              <li>Managed IT help desk and helpdesk staff</li>
-              <li>
-                Removed redundant software and saved thousands of dollars per
-                year
-              </li>
-              <li>Managed adjustments to COVID-19 remote work</li>
             </ul>
 
-            <h4>IT Helpdesk Associate</h4>
-            <h5>University of Maine IT Dept</h5>
+            <h4>Technical Support Rep</h4>
+            <h5>Wayside Publishing</h5>
             <span>
               <FontAwesomeIcon icon={faCalendar} />
-              <span>2015-2016</span>
+              <span>2017-2018</span>
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
-              <a>Orono, ME</a>
+              <a>Freeport, ME</a>
             </span>
-
             <ul>
               <li>
-                Provided IT support for students and staff at in person help
-                desk
+                Provided support for Wayside Publishing customers via phone and
+                email
               </li>
-              <li>Maintained printers at two help desk locations</li>
               <li>
-                Responded quickly to computer outages to notify and assist
-                students
+                Created custom data connector between Salesforce, production web
+                app, and other proprietary systems
+              </li>
+              <li>
+                Worked with Dev Team and client IT admins to automate user
+                onboarding
+              </li>
+              <li>
+                Automated data entry for major projects to meet strict deadlines
               </li>
             </ul>
             <h4>Developer</h4>
@@ -319,7 +343,7 @@ function App(props) {
             <h4>WrldBldr</h4>
             <div className="project-link">
               <FontAwesomeIcon icon={faGithub} />
-              <a href="https://github.com/jamezlevasseur/WrldBldr">
+              <a href="https://github.com/jlevdev/WrldBldr">
                 Check out the code.
               </a>
             </div>
@@ -348,7 +372,7 @@ function App(props) {
             <h4>Fab Lab Reservation System</h4>
             <div className="project-link">
               <FontAwesomeIcon icon={faGithub} />
-              <a href="https://github.com/jamezlevasseur/IMRC_AM_2k17">
+              <a href="https://github.com/jlevdev/IMRC_AM_2k17">
                 Check out the code.
               </a>
             </div>
@@ -402,18 +426,18 @@ function App(props) {
               <li>Bash</li>
               <li>CSS</li>
               <li>HTML</li>
-              <li>Java</li>
               <li>JavaScipt</li>
+              <li>jQuery</li>
               <li>PHP</li>
               <li>PowerShell</li>
               <li>Python</li>
-              <li>React.js</li>
-              <li>jQuery</li>
+              <li>React</li>
             </ul>
             <h4>Databases</h4>
             <ul className="clean-list">
               <li>MongoDB</li>
               <li>Postgres</li>
+              <li>SQL</li>
             </ul>
             <h4>Dev Tools</h4>
             <ul className="clean-list">

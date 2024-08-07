@@ -24,6 +24,7 @@
     "react-bootstrap": "^2.2.1",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "styled-components": "^6.1.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,10 +32,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy":"npm run build ",
+    "predeploy": "npm run build ",
     "gh-clean": "gh-pages-clean",
     "debug_deploy": "gh-pages-clean && npm run build && gh-pages -d build",
-    "deploy":"gh-pages -cname jameslevasseur.com -d build "
+    "deploy": "gh-pages -cname jameslevasseur.com -d build "
   },
   "eslintConfig": {
     "extends": [
