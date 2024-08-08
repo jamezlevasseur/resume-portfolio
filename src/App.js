@@ -14,62 +14,130 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
 
+const DAY = "day";
+const NIGHT = "night";
+
+const WHITE = "#fff";
+const BLACK = "#000";
+const SLATE = "#222";
+
+const DAY_BORDER = `3px solid ${BLACK}`;
+const NIGHT_BORDER = `3px solid ${WHITE}`;
+
 function App() {
   const currentTime = new Date().getHours();
 
   const initialDayNightSetting =
-    currentTime > 17 || currentTime < 9 ? "night" : "day";
+    currentTime > 17 || currentTime < 9 ? NIGHT : DAY;
   const [dayNight, setDayNight] = useState(initialDayNightSetting);
   const [bodyBG, setbodyBG] = useState(
-    initialDayNightSetting === "day" ? "#fff" : "#222"
+    initialDayNightSetting === DAY ? WHITE : SLATE
   );
   const [bodyColor, setbodyColor] = useState(
-    initialDayNightSetting === "day" ? "#000" : "#fff"
+    initialDayNightSetting === DAY ? BLACK : WHITE
   );
   const [h3BorderBottom, setH3BorderBottom] = useState({
-    borderBottom: "3px solid #fff",
+    borderBottom: DAY_BORDER,
   });
 
   document.body.style.background = bodyBG;
   document.body.style.color = bodyColor;
 
-  function dayNightSwitch() {
-    if (dayNight === "night") {
-      setbodyBG("#fff");
-      setbodyColor("#000");
-      setDayNight("day");
-      setH3BorderBottom({ borderBottom: "3px solid #000" });
+  const dayNightSwitch = () => {
+    if (dayNight === NIGHT) {
+      setbodyBG(WHITE);
+      setbodyColor(BLACK);
+      setDayNight(DAY);
+      setH3BorderBottom({ borderBottom: NIGHT_BORDER });
     } else {
       setbodyBG("#222");
       setbodyColor("#fff");
       setDayNight("night");
-      setH3BorderBottom({ borderBottom: "3px solid #fff" });
+      setH3BorderBottom({ borderBottom: DAY_BORDER });
     }
-  }
+  };
 
-  function DayNightButton() {
-    if (dayNight === "day") {
-      return (
-        <FontAwesomeIcon
-          data-html2canvas-ignore="true"
-          icon={faSun}
-          onClick={() => {
-            dayNightSwitch();
-          }}
-        />
-      );
-    } else {
-      return (
-        <FontAwesomeIcon
-          data-html2canvas-ignore="true"
-          icon={faMoon}
-          onClick={() => {
-            dayNightSwitch();
-          }}
-        />
-      );
-    }
-  }
+  const downloadPdfClick = () => {
+    setTimeout(() => {
+      html2pdf()
+        .set({
+          filename: "James_LeVasseur_Resume.pdf",
+          html2canvas: {
+            onclone: (element) => {
+              const span = Array.from(element.querySelectorAll("span"));
+              const li = Array.from(element.querySelectorAll("li"));
+              const p = Array.from(element.querySelectorAll("p"));
+              const h1 = Array.from(element.querySelectorAll("h1"));
+              const h2 = Array.from(element.querySelectorAll("h2"));
+              const h3 = Array.from(element.querySelectorAll("h3"));
+              const h4 = Array.from(element.querySelectorAll("h4"));
+              const h5 = Array.from(element.querySelectorAll("h5"));
+              span.forEach((e) => {
+                e.style.color = BLACK;
+              });
+              li.forEach((e) => {
+                e.style.color = BLACK;
+              });
+              p.forEach((e) => {
+                e.style.color = BLACK;
+              });
+              h1.forEach((e) => {
+                e.style.color = BLACK;
+              });
+              h2.forEach((e) => {
+                e.style.color = BLACK;
+              });
+              h3.forEach((e) => {
+                e.style.color = BLACK;
+                e.style.borderBottom = DAY_BORDER;
+              });
+              h4.forEach((e) => {
+                e.style.color = BLACK;
+              });
+              h5.forEach((e) => {
+                e.style.color = BLACK;
+              });
+
+              const divs = Array.from(element.querySelectorAll("div"));
+
+              divs.forEach((d) => {
+                if (d.classList.contains("App")) {
+                  d.style.backgroundColor = "#fff";
+                }
+              });
+
+              const anchorElements = Array.from(element.querySelectorAll("a"));
+
+              anchorElements.forEach((a) => {
+                a.style.color = BLACK;
+              });
+
+              const svgElements = Array.from(element.querySelectorAll("svg"));
+
+              svgElements.forEach((s) => {
+                console.log(s);
+                console.log(s.firstChild);
+                const bBox = s.getBBox();
+
+                s.setAttribute("x", bBox.x);
+                s.setAttribute("y", bBox.y);
+                s.setAttribute("width", (bBox.width / bBox.height) * 15);
+                s.setAttribute("height", 15);
+
+                s.style.fill = BLACK;
+                s.style.webkitTextFillColor = BLACK;
+
+                s.firstChild.style.fill = BLACK;
+                s.firstChild.style.webkitTextFillColor = BLACK;
+              });
+            },
+            height: 1056,
+          },
+        })
+        .from($(".App")[0])
+        .save();
+    }, 1000);
+  };
 
   return (
     <div className="App container">
@@ -78,103 +146,17 @@ function App() {
           <h1>James LeVasseur</h1>
           <h2>Developer, Sys Admin, Geek</h2>
           <div className="top-buttons">
-            <DayNightButton />
-
+            <FontAwesomeIcon
+              data-html2canvas-ignore="true"
+              icon={dayNight === DAY ? faSun : faMoon}
+              onClick={() => {
+                dayNightSwitch();
+              }}
+            />
             <FontAwesomeIcon
               data-html2canvas-ignore="true"
               icon={faFileArrowDown}
-              onClick={() => {
-                setTimeout(() => {
-                  html2pdf()
-                    .set({
-                      filename: "James_LeVasseur_Resume.pdf",
-                      html2canvas: {
-                        onclone: (element) => {
-                          const span = Array.from(
-                            element.querySelectorAll("span")
-                          );
-                          const li = Array.from(element.querySelectorAll("li"));
-                          const p = Array.from(element.querySelectorAll("p"));
-                          const h1 = Array.from(element.querySelectorAll("h1"));
-                          const h2 = Array.from(element.querySelectorAll("h2"));
-                          const h3 = Array.from(element.querySelectorAll("h3"));
-                          const h4 = Array.from(element.querySelectorAll("h4"));
-                          const h5 = Array.from(element.querySelectorAll("h5"));
-                          span.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-                          li.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-                          p.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-                          h1.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-                          h2.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-                          h3.forEach((e) => {
-                            e.style.color = "#000";
-                            e.style.borderBottom = "3px solid #000";
-                          });
-                          h4.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-                          h5.forEach((e) => {
-                            e.style.color = "#000";
-                          });
-
-                          const divs = Array.from(
-                            element.querySelectorAll("div")
-                          );
-
-                          divs.forEach((d) => {
-                            if (d.classList.contains("App")) {
-                              d.style.backgroundColor = "#fff";
-                            }
-                          });
-
-                          const anchorElements = Array.from(
-                            element.querySelectorAll("a")
-                          );
-
-                          anchorElements.forEach((a) => {
-                            a.style.color = "#000";
-                          });
-
-                          const svgElements = Array.from(
-                            element.querySelectorAll("svg")
-                          );
-
-                          svgElements.forEach((s) => {
-                            console.log(s);
-                            console.log(s.firstChild);
-                            const bBox = s.getBBox();
-
-                            s.setAttribute("x", bBox.x);
-                            s.setAttribute("y", bBox.y);
-                            s.setAttribute(
-                              "width",
-                              (bBox.width / bBox.height) * 15
-                            );
-                            s.setAttribute("height", 15);
-
-                            s.style.fill = "#000";
-                            s.style.webkitTextFillColor = "#000";
-
-                            s.firstChild.style.fill = "#000";
-                            s.firstChild.style.webkitTextFillColor = "#000";
-                          });
-                        },
-                        height: 1056,
-                      },
-                    })
-                    .from($(".App")[0])
-                    .save();
-                }, 1000);
-              }}
+              onClick={downloadPdfClick}
             />
           </div>
         </div>
@@ -182,30 +164,39 @@ function App() {
           <ul>
             <li>
               <FontAwesomeIcon icon={faEnvelope} />
-              <a href="mailto:jlevdev@gmail.com" target="_blank">
+              <a
+                href="mailto:jlevdev@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+              >
                 jlevdev@gmail.com
               </a>
             </li>
             <li>
               <FontAwesomeIcon icon={faMobileButton} />
-              <a>(207) 659-9328</a>
+              <span className="padded">(207) 659-9328</span>
             </li>
             <li>
               <FontAwesomeIcon icon={faLocationDot} />
-              <a>Portland, ME</a>
+              <span className="padded">Portland, ME</span>
             </li>
             <li>
               <FontAwesomeIcon icon={faLinkedin} />
               <a
                 href="https://www.linkedin.com/in/james-levasseur-7389aa168/"
                 target="_blank"
+                rel="noreferrer"
               >
                 LinkedIn
               </a>
             </li>
             <li>
               <FontAwesomeIcon icon={faGithub} />
-              <a href="https://github.com/jlevdev" target="_blank">
+              <a
+                href="https://github.com/jlevdev"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Github
               </a>
             </li>
@@ -236,7 +227,7 @@ function App() {
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
-              <a>Freeport, ME</a>
+              <span>Freeport, ME</span>
             </span>
 
             <ul>
@@ -264,7 +255,7 @@ function App() {
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
-              <a>Freeport, ME</a>
+              <span>Freeport, ME</span>
             </span>
 
             <ul>
@@ -297,7 +288,7 @@ function App() {
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
-              <a>Freeport, ME</a>
+              <span>Freeport, ME</span>
             </span>
             <ul>
               <li>
@@ -324,7 +315,7 @@ function App() {
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
-              <a>Orono, ME</a>
+              <span>Orono, ME</span>
             </span>
 
             <ul>
@@ -347,11 +338,6 @@ function App() {
                 Check out the code.
               </a>
             </div>
-            {/*
-            <div className="project-link">
-              <FontAwesomeIcon icon={faGlobe} />
-              <a href="wb.jameslevasseur.com">Take a look.</a>
-            </div>*/}
             <ul className="skill-list">
               <li>React.js</li>
               <li>Django</li>
@@ -376,11 +362,6 @@ function App() {
                 Check out the code.
               </a>
             </div>
-            {/*
-            <div className="project-link">
-              <FontAwesomeIcon icon={faGlobe} />
-              <a href="fablab.jameslevasseur.com">Take a look.</a>
-            </div>*/}
             <ul className="skill-list">
               <li>PHP</li>
               <li>jQuery</li>
@@ -414,9 +395,9 @@ function App() {
               Maine
             </p>
             <p>
-              <a>
+              <span>
                 <FontAwesomeIcon icon={faLocationDot} /> <span> Orono, ME</span>
-              </a>
+              </span>
             </p>
           </div>
           <div className="text-block skills">
