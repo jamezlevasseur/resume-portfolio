@@ -37,7 +37,7 @@ function App() {
     initialDayNightSetting === DAY ? BLACK : WHITE
   );
   const [h3BorderBottom, setH3BorderBottom] = useState({
-    borderBottom: DAY_BORDER,
+    borderBottom: initialDayNightSetting === DAY ? DAY_BORDER : NIGHT_BORDER,
   });
 
   document.body.style.background = bodyBG;
@@ -48,12 +48,12 @@ function App() {
       setbodyBG(WHITE);
       setbodyColor(BLACK);
       setDayNight(DAY);
-      setH3BorderBottom({ borderBottom: NIGHT_BORDER });
-    } else {
-      setbodyBG("#222");
-      setbodyColor("#fff");
-      setDayNight("night");
       setH3BorderBottom({ borderBottom: DAY_BORDER });
+    } else {
+      setbodyBG(SLATE);
+      setbodyColor(WHITE);
+      setDayNight(NIGHT);
+      setH3BorderBottom({ borderBottom: NIGHT_BORDER });
     }
   };
 
@@ -141,25 +141,27 @@ function App() {
 
   return (
     <div className="App container">
+      <div className="top-buttons">
+        <FontAwesomeIcon
+          data-html2canvas-ignore="true"
+          icon={dayNight === DAY ? faSun : faMoon}
+          onClick={() => {
+            dayNightSwitch();
+          }}
+        />
+        <FontAwesomeIcon
+          data-html2canvas-ignore="true"
+          icon={faFileArrowDown}
+          onClick={downloadPdfClick}
+        />
+      </div>
       <div className="row">
-        <div className="title col-12">
+        <header className="title col-12">
           <h1>James LeVasseur</h1>
-          <h2>Developer, Sys Admin, Geek</h2>
-          <div className="top-buttons">
-            <FontAwesomeIcon
-              data-html2canvas-ignore="true"
-              icon={dayNight === DAY ? faSun : faMoon}
-              onClick={() => {
-                dayNightSwitch();
-              }}
-            />
-            <FontAwesomeIcon
-              data-html2canvas-ignore="true"
-              icon={faFileArrowDown}
-              onClick={downloadPdfClick}
-            />
-          </div>
-        </div>
+          <h2>Developer, Sys Admin, Nerd</h2>
+        </header>
+      </div>
+      <main className="row">
         <div className="little-bits col-12">
           <ul>
             <li>
@@ -448,7 +450,10 @@ function App() {
             </ul>
           </div>
         </div>
-      </div>
+      </main>
+      <footer className="row">
+        <h2>Thanks for swinging by :D</h2>
+      </footer>
     </div>
   );
 }

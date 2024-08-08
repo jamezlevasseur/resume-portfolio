@@ -11181,7 +11181,7 @@ p {
 }
 
 .App .top-buttons {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 1vw;
   text-align: right;
@@ -11259,6 +11259,10 @@ p {
 .App .skills h4, .App .skills .h4 {
   padding-left: 4px;
   text-decoration: underline;
+}
+
+footer {
+  padding-top: 40px;
 }
 
 /*media query styles */
