@@ -153,6 +153,7 @@ function App() {
           data-html2canvas-ignore="true"
           icon={faFileArrowDown}
           onClick={downloadPdfClick}
+          style={{ display: "none" }}
         />
       </div>
       <div className="row">
