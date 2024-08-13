@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.04f8038e.css",
+    "main.js": "/static/js/main.ca5ddc1a.js",
+    "static/js/787.128fc6e9.chunk.js": "/static/js/787.128fc6e9.chunk.js",
+    "static/media/umologo.png": "/static/media/umologo.b721bd58971310b5b6ee.png",
+    "index.html": "/index.html",
+    "main.04f8038e.css.map": "/static/css/main.04f8038e.css.map",
+    "main.ca5ddc1a.js.map": "/static/js/main.ca5ddc1a.js.map",
+    "787.128fc6e9.chunk.js.map": "/static/js/787.128fc6e9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.04f8038e.css",
+    "static/js/main.ca5ddc1a.js"
+  ]
+}
