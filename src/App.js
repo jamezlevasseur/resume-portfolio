@@ -1,12 +1,9 @@
 import umobear from "./assets/umologo.png";
-import html2pdf from "html2pdf.js";
-import $ from "jquery";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendar,
   faEnvelope,
-  faFileArrowDown,
   faLocationDot,
   faMobileButton,
   faMoon,
@@ -57,88 +54,6 @@ function App() {
     }
   };
 
-  const downloadPdfClick = () => {
-    setTimeout(() => {
-      html2pdf()
-        .set({
-          filename: "James_LeVasseur_Resume.pdf",
-          html2canvas: {
-            onclone: (element) => {
-              const span = Array.from(element.querySelectorAll("span"));
-              const li = Array.from(element.querySelectorAll("li"));
-              const p = Array.from(element.querySelectorAll("p"));
-              const h1 = Array.from(element.querySelectorAll("h1"));
-              const h2 = Array.from(element.querySelectorAll("h2"));
-              const h3 = Array.from(element.querySelectorAll("h3"));
-              const h4 = Array.from(element.querySelectorAll("h4"));
-              const h5 = Array.from(element.querySelectorAll("h5"));
-              span.forEach((e) => {
-                e.style.color = BLACK;
-              });
-              li.forEach((e) => {
-                e.style.color = BLACK;
-              });
-              p.forEach((e) => {
-                e.style.color = BLACK;
-              });
-              h1.forEach((e) => {
-                e.style.color = BLACK;
-              });
-              h2.forEach((e) => {
-                e.style.color = BLACK;
-              });
-              h3.forEach((e) => {
-                e.style.color = BLACK;
-                e.style.borderBottom = DAY_BORDER;
-              });
-              h4.forEach((e) => {
-                e.style.color = BLACK;
-              });
-              h5.forEach((e) => {
-                e.style.color = BLACK;
-              });
-
-              const divs = Array.from(element.querySelectorAll("div"));
-
-              divs.forEach((d) => {
-                if (d.classList.contains("App")) {
-                  d.style.backgroundColor = "#fff";
-                }
-              });
-
-              const anchorElements = Array.from(element.querySelectorAll("a"));
-
-              anchorElements.forEach((a) => {
-                a.style.color = BLACK;
-              });
-
-              const svgElements = Array.from(element.querySelectorAll("svg"));
-
-              svgElements.forEach((s) => {
-                console.log(s);
-                console.log(s.firstChild);
-                const bBox = s.getBBox();
-
-                s.setAttribute("x", bBox.x);
-                s.setAttribute("y", bBox.y);
-                s.setAttribute("width", (bBox.width / bBox.height) * 15);
-                s.setAttribute("height", 15);
-
-                s.style.fill = BLACK;
-                s.style.webkitTextFillColor = BLACK;
-
-                s.firstChild.style.fill = BLACK;
-                s.firstChild.style.webkitTextFillColor = BLACK;
-              });
-            },
-            height: 1056,
-          },
-        })
-        .from($(".App")[0])
-        .save();
-    }, 1000);
-  };
-
   return (
     <div className="App container">
       <div className="top-buttons">
@@ -148,12 +63,6 @@ function App() {
           onClick={() => {
             dayNightSwitch();
           }}
-        />
-        <FontAwesomeIcon
-          data-html2canvas-ignore="true"
-          icon={faFileArrowDown}
-          onClick={downloadPdfClick}
-          style={{ display: "none" }}
         />
       </div>
       <div className="row">
@@ -212,8 +121,7 @@ function App() {
               Hi, I'm James and welcome to my site/resume. I'm a tech enthusiast
               who's gone from IT Support to System Administrator and now
               Fullstack Developer. If I had to encapsulate my career into a
-              phrase it would be "learn on the go" (disclaimer I have not used
-              much of GO). I have been coding since high school and have taken
+              phrase it would be "learn on the go". I have been coding since high school and have taken
               on a variety of projects both professional and personal. From
               websites, to microcontrollers, 3D printing, and homelab setups. I
               learn by doing on the regular and would be happy to help with your
@@ -226,7 +134,7 @@ function App() {
             <h5>Wayside Publishing</h5>
             <span>
               <FontAwesomeIcon icon={faCalendar} />
-              <span>2017 - Present</span>
+              <span>2022 - Present</span>
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
@@ -254,7 +162,7 @@ function App() {
             <h5>Wayside Publishing</h5>
             <span>
               <FontAwesomeIcon icon={faCalendar} />
-              <span>2017 - Present</span>
+              <span>2017 - 2022</span>
             </span>
             <span>
               <FontAwesomeIcon icon={faLocationDot} />
@@ -452,9 +360,6 @@ function App() {
           </div>
         </div>
       </main>
-      <footer className="row">
-        <h2>Thanks for swinging by :D</h2>
-      </footer>
     </div>
   );
 }
