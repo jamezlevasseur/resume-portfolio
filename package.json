@@ -2,7 +2,7 @@
   "name": "my-portfolio",
   "version": "0.1.1",
   "private": true,
-  "homepage": "https://jamezlevasseur.github.io",
+  "homepage": "https://jlevdev.github.io",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.0",
     "@fortawesome/free-brands-svg-icons": "^6.1.0",
@@ -31,10 +31,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build ",
+    "predeploy": "npm run build",
     "gh-clean": "gh-pages-clean",
     "debug_deploy": "gh-pages-clean && npm run build && gh-pages -d build",
-    "deploy": "gh-pages -d build "
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
